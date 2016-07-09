@@ -1,2 +1,65 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+@import 'mixins';
+
+html{
+	font-size: 62.5%;
+	min-height:100%;
+
+}
+
+.right{
+	float: right;
+
+	&:after{
+		clear:both;
+	}
+}
+
+.left{
+	float: right;
+
+	&:after{
+		clear:both;
+	}
+}
+
+.height-full{
+	height:100%;
+}
+
+.register-form{
+	@include margin-all(50px, null, null, null);
+	@include margin-all(5rem, null, null, null);
+}
+
+.navbar{
+	box-shadow : 0 1px 3px 0 hsla(0,0%,84%,.4) !important;
+}
+
+.sidebar{
+	@include margin(0);
+	position:fixed;
+	left:0;
+	background : rgba(0,0,0,0.8);
+}
+
+.sidebar-hidden{
+	width: 0px !important;
+}
+
+
+.footer{
+	@include padding-all(5px, null, 5px, null);
+	position : fixed;
+	background : rgba(0,0,0,0.6);
+	bottom: 0;
+	color: white;
+	text-align: center;
+}
+
+@media (min-width : 768px) {
+	.left-border{
+		@include shadow(-5,0,5,-5,#777);
+	}
+}

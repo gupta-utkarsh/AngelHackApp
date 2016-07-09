@@ -1,0 +1,48 @@
+html {
+  font-size: 62.5%;
+  min-height: 100%; }
+
+.right {
+  float: right; }
+  .right:after {
+    clear: both; }
+
+.left {
+  float: right; }
+  .left:after {
+    clear: both; }
+
+.height-full {
+  height: 100%; }
+
+.register-form {
+  margin-top: 50px;
+  margin-top: 5rem; }
+
+.navbar {
+  box-shadow: 0 1px 3px 0 rgba(214, 214, 214, 0.4) !important; }
+
+.sidebar {
+  margin: 0px;
+  margin: 0rem;
+  position: fixed;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8); }
+
+.sidebar-hidden {
+  width: 0px !important; }
+
+.footer {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  color: white;
+  text-align: center; }
+
+@media (min-width: 768px) {
+  .left-border {
+    box-shadow: -5px 0px 5px -5px #777; } }
+
+/*# sourceMappingURL=app.css.map */
