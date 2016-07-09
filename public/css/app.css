@@ -25,12 +25,12 @@ a {
   background-color: white;
   box-shadow: 0 1px 3px 0 rgba(214, 214, 214, 0.4) !important; }
 
-  .navbar-text {
-    text-transform: capitalize; }
+.navbar-text {
+  text-transform: capitalize; }
 
 .form-container {
-  margin-top: 20px;
-  margin-top: 2rem; }
+  margin-top: 70px;
+  margin-top: 7rem; }
 
 .login-form {
   margin-top: 30px;
@@ -45,8 +45,7 @@ a {
   margin-bottom: 10px; }
 
 .sidebar-container {
-  margin: 0px;
-  margin: 0rem;
+  margin-top: 50px;
   padding: 0px;
   padding: 0rem;
   background-color: #e7e7e7;
@@ -119,6 +118,13 @@ a {
     height: 30%;
     width: 1px;
     border-left: 2px solid #23527c; }
+
+.bubbletree-wrapper {
+  position: absolute !important;
+  right: 0 !important;
+  top: 50px !important;
+  width: 84% !important;
+  height: -webkit-calc(100% - 50px) !important; }
 
 .footer {
   padding-top: 5px;
