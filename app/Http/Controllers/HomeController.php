@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Appointment;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -18,21 +20,31 @@ class HomeController extends Controller
         $this->middleware('auth');
 
     }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
+        
+       
     public function index()
     {
-        
-        $user = self::getCurrentUser();
+        $patient = Auth::user();
+        $doctor = Auth::guard('doctors')->user();
 
-        $current_appointment = Appointment::getCurrentAppointmentForUser($user);
+        if($patient)
+        {
 
-        //$current_doc = $current_appointment->doctor_id;
+            $current_appointment = Appointment::getCurrentAppointmentForUser($user);
 
-        return view('home');
+            //$current_doc = $current_appointment->doctor_id;
+
+            return view('pages/patient_index');
+        }
+        else if($doctor)
+        {
+            return view('pages/doctor_index');
+        }
+        else
+        {
+            return view('pages/login_index',[
+                    'title' => "Doctor"
+                ]);
+        }    
     }
 }

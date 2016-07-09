@@ -1,0 +1,59 @@
+@mixin box-shadow($color){
+	-webkit-box-shadow: 0px 0px 10px -2px $color;
+	    -moz-box-shadow: 0px 0px 10px -2px $color;
+	        box-shadow: 0px 0px 10px -2px $color;
+}
+
+@mixin form-shadow($color){
+	-webkit-box-shadow: 1px 6px 10px -2px $color;
+	    -moz-box-shadow: 1px 6px 10px -2px $color;
+	        box-shadow: 1px 6px 10px -2px $color;	
+}
+
+@mixin shadow($hoffset, $voffset, $blur, $spread, $color){
+	$hoffset_px : $hoffset + px;
+	$voffset_px : $voffset + px;
+	$blur_px : $blur + px;
+	$spread_px : $spread + px;
+	-webkit-box-shadow: $hoffset_px $voffset_px $blur_px $spread_px $color;
+		-moz-box-shadow: $hoffset_px $voffset_px $blur_px $spread_px $color;
+			box-shadow: $hoffset_px $voffset_px $blur_px $spread_px $color;
+}
+
+@mixin border-radius($radius){
+	-webkit-border-radius: $radius;
+	   -moz-border-radius: $radius;
+	   		border-radius: $radius;
+}
+
+@mixin padding($size) {
+  padding: $size + px;
+  padding: ($size / 10) + rem;
+}
+
+@mixin padding-all($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+
+@mixin margin($size) {
+  	margin: $size + px;
+  	margin: ($size / 10) + rem;
+}
+
+@mixin margin-all($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+
+@mixin transition($property, $time){
+	-webkit-transition : $property $time ease-in;
+	   -moz-transition : $property $time ease-in;
+	    -ms-transition : $property $time ease-in;
+	     -o-transition : $property $time ease-in;
+	     	transition : $property $time ease-in;
+}
