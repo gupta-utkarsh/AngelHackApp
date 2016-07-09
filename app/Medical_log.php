@@ -40,4 +40,9 @@ class Medical_log extends Model
         return $user->medical_logs()->where('doctor_id', '=', $doctor_id)->orderBy('created_at', 'desc')->get();
     }
     
+    public static function getAllUserLogsforDoctor(Doctor $user, $patient_id)
+    {
+        
+        return $user->medical_logs()->where('user_id', '=', $patient_id)->orderBy('created_at', 'desc')->get();
+    }
 }
