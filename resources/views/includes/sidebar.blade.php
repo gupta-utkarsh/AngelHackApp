@@ -39,7 +39,7 @@
 					<a class="sidebar-list-item-link active" href="">
 						<div class="row">	
 							<i class="col-xs-2 fa fa-heartbeat sidebar-list-item-icon"></i>
-							<span class="col-xs-9 sidebar-list-item-desc">Ongoing Treatment</span>
+							<span class="col-xs-9 sidebar-list-item-desc">Current Patients</span>
 						</div>	
 					</a>
 				</li>
@@ -47,15 +47,7 @@
 					<a class="sidebar-list-item-link" href="">
 						<div class="row">	
 							<i class="col-xs-2 fa fa-calendar-check-o sidebar-list-item-icon"></i>
-							<span class="col-xs-9 sidebar-list-item-desc">Medical History</span>
-						</div>	
-					</a>
-				</li>
-				<li class="sidebar-list-item">
-					<a class="sidebar-list-item-link" href="">
-						<div class="row">	
-							<i class="col-xs-2 fa fa-users sidebar-list-item-icon"></i>
-							<span class="col-xs-9 sidebar-list-item-desc">Family</span>
+							<span class="col-xs-9 sidebar-list-item-desc">Patients History</span>
 						</div>	
 					</a>
 				</li>

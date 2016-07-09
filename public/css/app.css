@@ -51,6 +51,7 @@ a {
   background-color: #e7e7e7;
   position: fixed;
   left: 0;
+  top: 0;
   width: 16%;
   box-shadow: 1px 0px 3px 0 rgba(214, 214, 214, 0.4) !important; }
 
@@ -118,6 +119,13 @@ a {
     height: 30%;
     width: 1px;
     border-left: 2px solid #23527c; }
+
+.main-body {
+  margin-top: 50px;
+  margin-left: 16%; }
+
+.panel-container {
+  margin-top: 30px; }
 
 .bubbletree-wrapper {
   position: absolute !important;
