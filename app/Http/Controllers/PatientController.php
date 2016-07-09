@@ -54,14 +54,21 @@ class PatientController extends Controller
     	{
     		
     		
-    		
+    		// for doctors /patients/{name}/family
     		
     		// family view with search box
     	}
     	else
     	{
-    		// family view without search box
-    		// with option to add family members via email
+    		if($user->name == $name)
+    		{
+    			
+    			// patients - > their family only. /patients/$user->name/family
+    			// family view without search box
+    			// with option to add family members via email
+    		}
+
+    		
     	}
     }
 }
