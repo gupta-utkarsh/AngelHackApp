@@ -9,7 +9,7 @@ class Medical_log extends Model
     protected $table = 'medical_logs';
 
     protected $fillable = [
-        'symptoms', 'diagnosis', 'medicines',
+        'symptoms', 'diagnosis', 'medicines', 'user_id'
     ];
 
     public function user()

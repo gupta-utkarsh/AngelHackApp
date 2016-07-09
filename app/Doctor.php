@@ -47,4 +47,26 @@ class Doctor extends Authenticatable
     {
         return $this->is_doctor;
     }
+
+    public function createAppointmentForUser(User $user)
+    {
+        $this->appointments()->create([
+                'started_at' => date("Y-m-d H:i:s"),
+                'ended_at' => null,
+                'disease' => null,
+                'user_id' => $user->id,
+            ]);
+    }
+    public function createMedicalLogForUser(User $user, $params)
+    {
+        $this->medical_logs()->create([
+                'symptoms' => $params['symptoms'],
+                'diagnosis' => $params['diagnosis'],
+                'medicines' => $params['medicines'],
+                'user_id' => $user->id
+            ]);
+    }
+
+
+
 }

@@ -92,4 +92,11 @@ class User extends Authenticatable
 
         return false;
     }
+
+    public static function getUserBy($col, $arg)
+    {
+        $user = User::where($col, '=', $arg)->get()->first();
+
+        return $user;
+    }
 }
