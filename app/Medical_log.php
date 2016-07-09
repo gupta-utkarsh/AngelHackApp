@@ -21,4 +21,23 @@ class Medical_log extends Model
     {
     	return $this->belongsTo('App\Doctor');
     }
+
+    public static function getAllUserLogs(User $user)
+    {
+        /*$user = User::find($id);*/
+        return $user->medical_logs()->orderBy('created_at', 'desc')->get();
+    }
+
+    public static function getAllDoctorLogs(Doctor $user)
+    {
+        /*$user = Doctor::find($id);*/
+        return $user->medical_logs()->orderBy('created_at', 'desc')->get();
+    }
+
+    public static function getAllDoctorLogsforUser(User $user, $doctor_id)
+    {
+        
+        return $user->medical_logs()->where('doctor_id', '=', $doctor_id)->orderBy('created_at', 'desc')->get();
+    }
+    
 }

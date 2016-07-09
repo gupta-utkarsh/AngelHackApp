@@ -24,14 +24,24 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $assigned_doctor;
+
+    private $is_doctor = false;
+
     public function doctor()
     {
-        return $this->belongsTo('App\doctor');
+        $assigned_doctor =  $this->belongsTo('App\Doctor');
+        return $assigned_doctor;
     }
 
     public function medical_logs()
     {
         return $this->hasMany('App\Medical_log');
+    }
+
+    public function appointments()
+    {
+        return $this->hasMany('App\Appointment');
     }
 
     public function relations_one()

@@ -17,6 +17,8 @@ class Doctor extends Authenticatable
 
     protected $guard = 'doctors';
 
+    private $is_doctor = true;
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -34,5 +36,10 @@ class Doctor extends Authenticatable
     public function medical_logs()
     {
         return $this->hasMany('App\Medical_log');
+    }
+
+    public function appointments()
+    {
+        return $this->hasMany('App\Appointment');
     }
 }

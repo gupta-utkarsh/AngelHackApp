@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Appointment;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
     }
 
     /**
@@ -24,6 +26,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        
+        $user = self::getCurrentUser();
+
+        $current_appointment = Appointment::getCurrentAppointmentForUser($user);
+
+        //$current_doc = $current_appointment->doctor_id;
+
         return view('home');
     }
 }
