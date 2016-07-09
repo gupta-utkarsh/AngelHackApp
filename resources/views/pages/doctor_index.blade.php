@@ -7,11 +7,13 @@
 		<header>
 			@include('includes.header')
 		</header>
-		<div class="container">
-			<aside>
-				@include('includes.sidebar')
-			</aside>	 
-		</div>
+		<aside>
+			@include('includes.sidebar')
+		</aside>
+		<main class="main-body">	
+			<div class="row">	
+			</div>	
+		</main>
 		@include('includes.footer')
 	</body>
 </html>

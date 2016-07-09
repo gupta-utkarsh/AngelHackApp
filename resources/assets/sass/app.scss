@@ -46,8 +46,8 @@ a{
 	
 
 .form-container{
-	@include margin-all(20px, null, null, null);
-	@include margin-all(2rem, null, null, null);	
+	@include margin-all(70px, null, null, null);
+	@include margin-all(7rem, null, null, null);	
 }
 
 	.login-form{
@@ -66,7 +66,7 @@ a{
 
 
 .sidebar-container{
-	@include margin(0);
+	@include margin-all(50px, null, null, null);
 	@include padding(0);
 	background-color: #e7e7e7;
 	position:fixed;
@@ -137,6 +137,16 @@ a{
 						border-left:2px solid #23527c;
 					}
 				}	
+
+	
+
+.bubbletree-wrapper{
+	position:absolute !important;
+	right:0 !important;
+	top: 50px !important;
+	width: 84% !important;
+	height: -webkit-calc(100% - 50px) !important;
+}
 
 .footer{
 	@include padding-all(5px, null, 5px, null);
