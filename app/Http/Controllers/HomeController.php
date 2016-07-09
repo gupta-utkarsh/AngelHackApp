@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['/']]);
 
     }
         
@@ -26,16 +26,19 @@ class HomeController extends Controller
     {
         $user = self::getCurrentUser();
 
-        if(!$user->is_doctor())
+        $patient = Auth::user();
+        $doctor = Auth::guard('doctors')->user();
+
+        if($patient)
         {
 
-            $current_appointment = Appointment::getCurrentAppointmentForUser($patient);
+            $current_appointment = Appointment::getCurrentAppointmentForUser($user);
 
             //$current_doc = $current_appointment->doctor_id;
 
             return view('pages/patient_index');
         }
-        else if($user->is_doctor())
+        else if($doctor)
         {
             return view('pages/doctor_index');
         }
@@ -46,4 +49,6 @@ class HomeController extends Controller
                 ]);
         }    
     }
+
+
 }

@@ -10,7 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/', 'HomeController@index');
+
 
 Route::group(['middleware' => ['web']], function(){
 
@@ -32,5 +32,8 @@ Route::get('doclogout', 'DoctorAuth\AuthController@logout');
 Route::get('/home', 'HomeController@index');
 
 Route::get('/profile', 'ProfileController@index');
+Route::get('/', 'HomeController@index');
+
 });
+
 
