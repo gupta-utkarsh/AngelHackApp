@@ -2,6 +2,10 @@ html {
   font-size: 62.5%;
   min-height: 100%; }
 
+a {
+  text-decoration: none;
+  color: inherit; }
+
 .right {
   float: right; }
   .right:after {
@@ -14,6 +18,15 @@ html {
 
 .height-full {
   height: 100%; }
+
+.navbar {
+  margin: 0px;
+  margin: 0rem;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(214, 214, 214, 0.4) !important; }
+
+.navbar-text {
+  text-transform: capitalize; }
 
 .form-container {
   margin-top: 20px;
@@ -31,12 +44,6 @@ html {
   margin-top: 10px;
   margin-bottom: 10px; }
 
-.navbar {
-  margin: 0px;
-  margin: 0rem;
-  background-color: white;
-  box-shadow: 0 1px 3px 0 rgba(214, 214, 214, 0.4) !important; }
-
 .sidebar-container {
   margin: 0px;
   margin: 0rem;
@@ -45,7 +52,8 @@ html {
   background-color: #e7e7e7;
   position: fixed;
   left: 0;
-  width: 12.5%; }
+  width: 16%;
+  box-shadow: 1px 0px 3px 0 rgba(214, 214, 214, 0.4) !important; }
 
 .sidebar {
   margin-top: 30px;
@@ -62,6 +70,55 @@ html {
   padding: 0rem;
   list-style: none;
   text-align: center; }
+
+.sidebar-list-item {
+  font-family: LeagueGothic-Condensed;
+  font-size: 16px;
+  color: #777;
+  line-height: 18px; }
+
+.sidebar-list-item-link {
+  padding-right: 8px;
+  padding-left: 8px;
+  display: block;
+  height: 100%;
+  position: relative; }
+  .sidebar-list-item-link:hover:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 35%;
+    height: 30%;
+    width: 1px;
+    border-left: 2px solid #23527c; }
+
+.sidebar-list-item-icon {
+  padding-top: 20px;
+  padding-right: 0px;
+  padding-bottom: 20px;
+  padding-left: 0px;
+  margin-right: 8.333%;
+  display: inline-block;
+  text-align: right; }
+
+.sidebar-list-item-desc {
+  padding-top: 20px;
+  padding-right: 0px;
+  padding-bottom: 20px;
+  padding-left: 0px;
+  display: inline-block;
+  text-align: left; }
+
+.sidebar-list-item-link.active {
+  color: #23527c; }
+  .sidebar-list-item-link.active:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 35%;
+    height: 30%;
+    width: 1px;
+    border-left: 2px solid #23527c; }
 
 .footer {
   padding-top: 5px;

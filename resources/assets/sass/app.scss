@@ -8,6 +8,11 @@ html{
 
 }
 
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
 .right{
 	float: right;
 
@@ -28,30 +33,36 @@ html{
 	height:100%;
 }
 
-.form-container{
-	@include margin-all(20px, null, null, null);
-	@include margin-all(2rem, null, null, null);	
-}
-
-.login-form{
-	@include margin-all(30px, null, null, null);
-	@include margin-all(3rem, null, null, null);
-}
-
-.register-form{
-	@include margin-all(50px, null, null, null);
-	@include margin-all(5rem, null, null, null);
-}
-
-.register-form-title{
-	@include margin-all(10px, null, 10px, null);
-}
 
 .navbar{
 	@include margin(0);
 	background-color: rgba(255,255,255,1);
 	box-shadow : 0 1px 3px 0 hsla(0,0%,84%,.4) !important;
 }
+	.navbar-text{
+		text-transform : capitalize;
+	}
+
+
+.form-container{
+	@include margin-all(20px, null, null, null);
+	@include margin-all(2rem, null, null, null);	
+}
+
+	.login-form{
+		@include margin-all(30px, null, null, null);
+		@include margin-all(3rem, null, null, null);
+	}
+
+	.register-form{
+		@include margin-all(50px, null, null, null);
+		@include margin-all(5rem, null, null, null);
+	}
+
+		.register-form-title{
+			@include margin-all(10px, null, 10px, null);
+		}
+
 
 .sidebar-container{
 	@include margin(0);
@@ -59,23 +70,72 @@ html{
 	background-color: #e7e7e7;
 	position:fixed;
 	left:0;
-	width: 12.5%;
+	width: 16%;
+	box-shadow : 1px 0px 3px 0 hsla(0,0%,84%,.4) !important;
 }
 
-.sidebar{
-	@include margin-all(30px, 0, 0, 0);
-	@include padding(10);
-}
+	.sidebar{
+		@include margin-all(30px, 0, 0, 0);
+		@include padding(10);
+	}
 
-.sidebar-list{
-	@include margin(0);
-	@include padding(0);
-	list-style:none;
-	text-align: center;
-}
+		.sidebar-list{
+			@include margin(0);
+			@include padding(0);
+			list-style:none;
+			text-align: center;
+		}
 
-.sidebar-list-item{
-}
+			.sidebar-list-item{
+				font-family: LeagueGothic-Condensed;
+				font-size: 16px;
+				color: #777;
+				line-height: 18px;
+			}
+
+				.sidebar-list-item-link{
+					@include padding-all(null, 8px, null, 8px);
+					display: block;
+					height: 100%;
+					position: relative;
+					&:hover{	
+						&:before{
+							content : "";
+							position: absolute;
+							left    : 0;
+							top  : 35%;
+							height  : 30%;
+							width   : 1px;
+							border-left:2px solid #23527c;
+						}
+					}	
+				}
+
+					.sidebar-list-item-icon{
+						@include padding-all(20px, 0px, 20px, 0px);
+						@include margin-all(null, 8.333%, null, null);
+						display: inline-block;
+						text-align: right;
+					}
+					
+					.sidebar-list-item-desc{
+						@include padding-all(20px, 0px, 20px, 0px);
+						display: inline-block;
+						text-align: left;
+					}
+
+				.sidebar-list-item-link.active{
+					color: #23527c;
+					&:before{
+						content : "";
+						position: absolute;
+						left    : 0;
+						top  : 35%;
+						height  : 30%;
+						width   : 1px;
+						border-left:2px solid #23527c;
+					}
+				}	
 
 .footer{
 	@include padding-all(5px, null, 5px, null);
