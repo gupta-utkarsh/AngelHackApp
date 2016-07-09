@@ -42,4 +42,9 @@ class Doctor extends Authenticatable
     {
         return $this->hasMany('App\Appointment');
     }
+
+    public function is_doctor()
+    {
+        return $this->is_doctor;
+    }
 }

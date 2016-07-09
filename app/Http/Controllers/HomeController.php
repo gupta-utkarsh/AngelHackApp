@@ -24,19 +24,18 @@ class HomeController extends Controller
        
     public function index()
     {
-        $patient = Auth::user();
-        $doctor = Auth::guard('doctors')->user();
+        $user = self::getCurrentUser();
 
-        if($patient)
+        if(!$user->is_doctor())
         {
 
-            $current_appointment = Appointment::getCurrentAppointmentForUser($user);
+            $current_appointment = Appointment::getCurrentAppointmentForUser($patient);
 
             //$current_doc = $current_appointment->doctor_id;
 
             return view('pages/patient_index');
         }
-        else if($doctor)
+        else if($user->is_doctor())
         {
             return view('pages/doctor_index');
         }

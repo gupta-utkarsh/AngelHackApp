@@ -15,7 +15,7 @@ class ProfileController extends Controller
     {
     	$user = self::getCurrentUser();
     	
-    	// user info
+    	return $user->is_doctor();
     }
 
 }

@@ -64,6 +64,9 @@ class User extends Authenticatable
         return $this->belongsToMany('App\User', 'family_invites', 'from', 'to');
     }
 
-
+    public function is_doctor()
+    {
+        return $this->is_doctor;
+    }
 
 }
