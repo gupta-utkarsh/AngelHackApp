@@ -40,6 +40,10 @@ class HomeController extends Controller
         }
         else if($doctor)
         {
+            $current_appointments = Appointment::getCurrentAppointmentsForDoctor($user);
+
+            $specific_logs = 
+
             return view('pages/doctor_index');
         }
         else
