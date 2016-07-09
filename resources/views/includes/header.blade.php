@@ -14,14 +14,17 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><span class="navbar-text">Welcome Guest!</span></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li class="active"><a href="#">Login as Patient</a></li>
-            <li><a href="#">Login as Doctor</a></li>
-          </ul>
-        </li>
+        @if ((Auth::guest()) && (Auth::guard('doctors')->guest()))
+          <li><span class="navbar-text">Welcome Guest!</span></li>
+          <li @if( $title == "Doctor" ) class="active" @endif><a href="/doclogin">Login as Doctor</a></li>
+          <li @if( $title == "Patient" ) class="active" @endif><a href="/login">Login as Patient</a></li>
+        @elseif (Auth::user())
+          <li><span class="navbar-text">Welcome {{Auth::user()->name}}</span></li>
+          <li><a href="/logout">Logout</a></li>
+        @elseif (Auth::guard('doctors')->user())
+          <li><span class="navbar-text">Welcome {{Auth::guard('doctors')->user()->name}}</span></li>
+          <li><a href="/doclogout">Logout</a></li>
+        @endif
       </ul>
     </div>
   </div>

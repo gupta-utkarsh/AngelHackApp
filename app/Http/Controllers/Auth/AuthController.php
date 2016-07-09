@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -68,5 +69,23 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function showLoginForm(){
+        $patient = Auth::user();
+        $doctor = Auth::guard('doctors')->user();
+        if($patient){
+            return redirect()->route('/');
+        }
+        else if($doctor){
+            return redirect()->route('/');   
+        }
+        else{
+            return view('pages/login_index',
+            [
+                'title' => "Patient"
+            ]);    
+        }
+        
     }
 }

@@ -3,27 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('home');
+        $patient = Auth::user();
+        $doctor = Auth::guard('doctors')->user();
+
+        if($patient){
+            return view('pages/patient_index');
+        }
+        else if($doctor){
+            return view('pages/doctor_index');
+        }
+        else{
+            return view('pages/login_index',[
+                    'title' => "Doctor"
+                ]);
+        }    
     }
 }

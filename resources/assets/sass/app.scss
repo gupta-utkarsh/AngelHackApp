@@ -28,26 +28,54 @@ html{
 	height:100%;
 }
 
+.form-container{
+	@include margin-all(20px, null, null, null);
+	@include margin-all(2rem, null, null, null);	
+}
+
+.login-form{
+	@include margin-all(30px, null, null, null);
+	@include margin-all(3rem, null, null, null);
+}
+
 .register-form{
 	@include margin-all(50px, null, null, null);
 	@include margin-all(5rem, null, null, null);
 }
 
+.register-form-title{
+	@include margin-all(10px, null, 10px, null);
+}
+
 .navbar{
+	@include margin(0);
+	background-color: rgba(255,255,255,1);
 	box-shadow : 0 1px 3px 0 hsla(0,0%,84%,.4) !important;
 }
 
-.sidebar{
+.sidebar-container{
 	@include margin(0);
+	@include padding(0);
+	background-color: #e7e7e7;
 	position:fixed;
 	left:0;
-	background : rgba(0,0,0,0.8);
+	width: 12.5%;
 }
 
-.sidebar-hidden{
-	width: 0px !important;
+.sidebar{
+	@include margin-all(30px, 0, 0, 0);
+	@include padding(10);
 }
 
+.sidebar-list{
+	@include margin(0);
+	@include padding(0);
+	list-style:none;
+	text-align: center;
+}
+
+.sidebar-list-item{
+}
 
 .footer{
 	@include padding-all(5px, null, 5px, null);

@@ -15,22 +15,53 @@ html {
 .height-full {
   height: 100%; }
 
+.form-container {
+  margin-top: 20px;
+  margin-top: 2rem; }
+
+.login-form {
+  margin-top: 30px;
+  margin-top: 3rem; }
+
 .register-form {
   margin-top: 50px;
   margin-top: 5rem; }
 
-.navbar {
-  box-shadow: 0 1px 3px 0 rgba(214, 214, 214, 0.4) !important; }
+.register-form-title {
+  margin-top: 10px;
+  margin-bottom: 10px; }
 
-.sidebar {
+.navbar {
   margin: 0px;
   margin: 0rem;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(214, 214, 214, 0.4) !important; }
+
+.sidebar-container {
+  margin: 0px;
+  margin: 0rem;
+  padding: 0px;
+  padding: 0rem;
+  background-color: #e7e7e7;
   position: fixed;
   left: 0;
-  background: rgba(0, 0, 0, 0.8); }
+  width: 12.5%; }
 
-.sidebar-hidden {
-  width: 0px !important; }
+.sidebar {
+  margin-top: 30px;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding: 10px;
+  padding: 1rem; }
+
+.sidebar-list {
+  margin: 0px;
+  margin: 0rem;
+  padding: 0px;
+  padding: 0rem;
+  list-style: none;
+  text-align: center; }
 
 .footer {
   padding-top: 5px;
