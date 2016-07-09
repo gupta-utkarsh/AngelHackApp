@@ -78,8 +78,20 @@ class AuthController extends Controller
         ]);
     }
 
-    public function showLoginForm(){
-        $patient = Auth::user();
+    public function showLoginForm()
+    {
+        $view = property_exists($this, 'loginView')
+                    ? $this->loginView : 'auth.authenticate';
+
+        if (view()->exists($view)) {
+            return view($view);
+        }
+
+        return view('pages/login_index',
+            [
+                'title' => "Doctor"
+            ]); 
+        /*$patient = Auth::user();
         $doctor = Auth::guard('doctors')->user();
         if($patient){
             return redirect()->route('/');
@@ -92,6 +104,6 @@ class AuthController extends Controller
             [
                 'title' => "Doctor"
             ]);    
-        }
+        }*/
     }
 }

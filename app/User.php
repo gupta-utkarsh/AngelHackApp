@@ -24,6 +24,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $inverse = array(
+        'child' => 'parent',
+        'parent'=> 'child',
+        'sibling' => 'sibling',
+        'grandparent' => 'grandchild',
+        'grandchild' => 'grandparent'
+        );
     protected $assigned_doctor;
 
     private $is_doctor = false;
@@ -44,14 +51,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Appointment');
     }
 
-    public function relations_one()
+    public function relationsLeftToRight()
     {
         return $this->belongsToMany('App\User', 'patient_relations', 'first_user', 'second_user');
     }
 
-    public function relations_two()
+    public function relationsRightToLeft()
     {
-        return $this->belongsToMany('App\User', 'patient_relations', 'second_user', 'first_user ');
+        return $this->belongsToMany('App\User', 'patient_relations', 'second_user', 'first_user');
     }
 
     public function family_invites_received()
@@ -69,4 +76,20 @@ class User extends Authenticatable
         return $this->is_doctor;
     }
 
+    public function addRelationToUserBy($col, $arg, $role)
+    {
+        $second_user = User::where($col, '=', $arg)->get()->first();
+        $this->relationsLeftToRight()->attach($second_user->id, ['relation'=>$role]);
+        $this->relationsRightToLeft()->attach($second_user->id, ['relation' => $this->inverse[$role]]);
+    }
+
+    public static function CheckUserExistsBy($col, $arg)
+    {
+        $user = User::where($col, '=', $arg)->get()->first();
+
+        if(!is_null($user))
+            return true;
+
+        return false;
+    }
 }
