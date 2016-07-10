@@ -67,6 +67,9 @@ class Doctor extends Authenticatable
             ]);
     }
 
-
+    public static function getAllAppointments(Doctor $user)
+    {
+        return $user->appointments()->orderBy('created_at', 'desc')->get();
+    }
 
 }
