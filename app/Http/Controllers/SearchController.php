@@ -41,9 +41,12 @@ class SearchController extends Controller
    			array_push($result['medicines'], $this->searchMeds($object->pivot->second_user, $param));
    		}
 
-         dd($result);
-
-
+         return view('pages/doctor_patient_family_search',[
+               'diseases' => $result['diseases'],
+               'symptoms' => $result['symptoms'],
+               'medicines' => $result['medicines'],
+               'patient' => $patient         
+            ]);   
    	}
 
    	protected function searchDiseases($user_id, $param)
