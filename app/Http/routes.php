@@ -27,15 +27,16 @@ Route::post('doclogin', 'DoctorAuth\AuthController@login');
 Route::get('doclogout', 'DoctorAuth\AuthController@logout');
 Route::get('/home', 'HomeController@index');
 Route::get('/profile', 'ProfileController@index');
-Route::post('/patient/{name}/addlog', 'PatientController@appendLogs');
 
+Route::post('/patient/{name}/addlog', 'PatientController@appendLogs');
 Route::post('/patient/{name}/addDisease', function(){return;});
+Route::post('/patient/{name}/search', 'SearchController@index');
 Route::get('/patient/{name}/family', 'PatientController@familyIndex');
 Route::get('/patient/{name}', 'PatientController@index');
+Route::get('/patient_history', 'PatientController@getHistory');
 Route::get('/current_patients', 'HomeController@index');
 Route::get('/', 'HomeController@index');
 
-Route::post('/patient/{name}/search', 'SearchController@index');
 
 });
 

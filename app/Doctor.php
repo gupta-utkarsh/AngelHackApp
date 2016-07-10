@@ -59,12 +59,11 @@ class Doctor extends Authenticatable
     }
     public function createMedicalLogForUser(User $user, $params)
     {
-        $this->medical_logs()->create([
-                'symptoms' => $params['symptoms'],
-                'diagnosis' => $params['diagnosis'],
-                'medicines' => $params['medicines'],
-                'user_id' => $user->id
-            ]);
+        $this->medical_log = new Medical_log;
+        $this->medical_log->symptoms =  $params['symptoms'];
+        $this->medical_log->diagnosis = $params['diagnosis'];
+        $this->medical_log->user()->associate($user);
+        $this->medical_log->save();
     }
 
 

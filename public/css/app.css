@@ -18,6 +18,9 @@ html {
 .capitalize {
   text-transform: capitalize; }
 
+.inline {
+  display: inline-block; }
+
 .navbar {
   margin: 0px;
   margin: 0rem;
@@ -141,19 +144,27 @@ html {
   right: 0 !important;
   top: 50px !important;
   width: 84% !important;
-  height: -webkit-calc(100% - 50px) !important; }
+  height: -webkit-calc(100% - 100px) !important; }
+
+.search-form {
+  position: absolute !important;
+  right: 50px;
+  top: 100px;
+  z-index: 1000; }
 
 .bubbletree-amount {
   display: none !important; }
 
 .bubbletree-desc {
   font-size: 15px !important; }
-
-.bubbletree-desc span {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-size: 12px;
-  font-weight: bold; }
+  .bubbletree-desc span {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 12px;
+    font-weight: bold; }
+  .bubbletree-desc a {
+    text-decoration: none;
+    color: inherit; }
 
 .footer {
   padding-top: 5px;

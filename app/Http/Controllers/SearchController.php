@@ -5,14 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\User;
+use App\Doctor;
+use App\Appointment;
+use App\Medical_log;
 
 class SearchController extends Controller
 {
-    protected $user = self::getCurrentUser();
+    
 
    	public function index(Request $request, $name)
    	{
-   		$result =  array();
+   		$user = self::getCurrentUser();
+
+         $result =  array();
+         $result['diseases'] = array();
+         $result['symptoms'] = array();
+         $result['medicines']= array();
 
    		$patient = User::getUserBy('name', $name);
 
@@ -20,30 +29,30 @@ class SearchController extends Controller
 
    		$param = $request->input('value');
 
-   		foreach ($object in $object_array) 
+   		foreach ($object_array as $object) 
    		{
    			// appointment logs objects
 
-   			$result['diseases'] = $this->searchDiseases($object->second_user, $param);
+   			array_push($result['diseases'], $this->searchDiseases($object->pivot->second_user, $param));
 
    			// medical logs objects
+            array_push($result['symptoms'], $this->searchSymptoms($object->pivot->second_user, $param));
 
-   			$result['symptoms'] = $this->searchSymptoms($object->second_user, $param);
-
-   			$result['medicines'] = $this->searchMeds($object->second_user, $param);
+   			array_push($result['medicines'], $this->searchMeds($object->pivot->second_user, $param));
    		}
+
+         dd($result);
 
 
    	}
 
    	protected function searchDiseases($user_id, $param)
    	{	
-
-   		$user = User::getUserBy($user_id);
+   		$user = User::getUserBy('id', $user_id);
 
    		//$meds = explode(', ', $user->medical_logs->medicines);
 
-   		return $user->appointment_logs()->whereNotNull('diseases')->where('diseases', 'LIKE', '%'.$param.'%')->get();
+   		return $user->appointments()->whereNotNull('disease')->where('disease', 'LIKE', '%'.$param.'%')->get();
 
    		//return $result;
    	}
@@ -51,7 +60,7 @@ class SearchController extends Controller
    	protected function searchSymptoms($user_id, $param)
    	{	
 
-   		$user = User::getUserBy($user_id);
+   		$user = User::getUserBy('id', $user_id);
 
    		//$meds = explode(', ', $user->medical_logs->medicines);
 
@@ -63,7 +72,7 @@ class SearchController extends Controller
    	protected function searchMeds($user_id, $param)
    	{	
 
-   		$user = User::getUserBy($user_id);
+   		$user = User::getUserBy('id', $user_id);
 
    		//$meds = explode(', ', $user->medical_logs->medicines);
 

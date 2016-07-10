@@ -63,10 +63,10 @@ class PatientController extends Controller
     public function appendLogs(Request $request, $name)
     {
     	$patient = User::getUserBy('name', $name);
-
+        $user = self::getCurrentUser();
     	if($user->is_doctor())
     	{
-    		$user->createMedicalLogForUser($patient, $request->body());
+    		$user->createMedicalLogForUser($patient, $request->all());
     	}
     	else
     	{

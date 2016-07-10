@@ -41,6 +41,7 @@
 				        	<?php $a=1; ?>
 				        	@if($status == 0)
 					        	<form action="/patient/{{ $patient->name }}/addlog" method="post">
+					        		{{ csrf_field() }}
 					        		<tr>
 					        			<td></td>
 					        			<td></td>

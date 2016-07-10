@@ -33,6 +33,10 @@ html{
 	text-transform: capitalize;
 }
 
+.inline{
+	display: inline-block;
+}
+
 
 .navbar{
 	@include margin(0);
@@ -164,7 +168,14 @@ html{
 	right:0 !important;
 	top: 50px !important;
 	width: 84% !important;
-	height: -webkit-calc(100% - 50px) !important;
+	height: -webkit-calc(100% - 100px) !important;
+}
+
+.search-form{
+	position:absolute !important;
+	right: 50px;
+	top: 100px;
+	z-index: 1000;
 }
 
 	.bubbletree-amount{
@@ -173,12 +184,15 @@ html{
 
 	.bubbletree-desc{
 		font-size: 15px !important;
-	}
-
-	.bubbletree-desc span{
-		@include padding-all(5px, null, 5px, null);
-		font-size: 12px;
-		font-weight: bold;
+		span{
+			@include padding-all(5px, null, 5px, null);
+			font-size: 12px;
+			font-weight: bold;
+		}
+		a{
+			text-decoration: none;
+			color: inherit;
+		}
 	}
 
 .footer{
