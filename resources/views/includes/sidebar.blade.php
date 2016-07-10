@@ -36,7 +36,7 @@
 				</li>
 			@else
 				<li class="sidebar-list-item">
-					<a class="sidebar-list-item-link active" href="/current_patients">
+					<a class="sidebar-list-item-link" href="/current_patients">
 						<div class="row">	
 							<i class="col-xs-2 fa fa-heartbeat sidebar-list-item-icon"></i>
 							<span class="col-xs-9 sidebar-list-item-desc">Current Patients</span>

@@ -8,21 +8,46 @@ use App\Http\Requests;
 
 use App\User;
 use App\Medical_log;
+use App\Appointment;
+use App\Doctor; 
 
 
 class PatientController extends Controller
 {
-    $user = self::getCurrentUser();
 
     public function index($name)
     {
-    	if($user->is_doctor())
+    	$user = self::getCurrentUser();
+        $status;
+
+        if($user->is_doctor())
     	{
     		$patient = User::getUserBy('name', $name);
-
-    		$all_common_logs = Medical_log::getAllUserLogsforDoctor($user, $patient->id); 
-
-    		// your view goes here
+            $status = 0;
+            $all_common_logs = Medical_log::getAllUserLogsforDoctor($user, $patient->id);
+            return view('pages/doctor_patient_index',[
+                'logs' => $all_common_logs,
+                'patient' => $patient,
+                'status' => $status
+            ]);
+            // if($patient->doctor()->email == $user->email){
+            //     $status = 0;
+            //     $all_common_logs = Medical_log::getAllUserLogsforDoctor($user, $patient->id);
+            //     return view('pages/doctor_patient_index',[
+            //             'logs' => $all_common_logs,
+            //             'patient' => $patient,
+            //             'status' => $status
+            //         ]);
+            // }    
+            // elseif($this->checkIfTreatedinThePast($patient, $user)){
+            //     $status = 1;
+            //     $all_common_logs = Medical_log::getAllUserLogsforDoctor($user, $patient->id);
+            //     return view('pages/doctor_patient_index',[
+            //             'logs' => $all_common_logs,
+            //             'patient' => $patient,
+            //             'status' => $status
+            //         ]);    
+            // }    		
        	}
     }
 
@@ -39,6 +64,26 @@ class PatientController extends Controller
     		//
     	}
     }
+    public function checkIfTreatedinThePast($patient, $user){
+        $appointments = $patient->appointments();
+        foreach ($appointments as $appointment) {
+            if($appointment->doctor() == $user){
+                return True;
+            }
+        }
+        return False;
+    }
+
+    public function checkIfFamilyMember($member, $user){
+        $patients = $user->patients();
+        foreach ($patients as $patient) {
+            if(in_array($member, $patient->relationsLeftToRight)){
+                return True;
+            }
+        }
+        return False;
+    }
+
 
     public function familyIndex($name)
     {

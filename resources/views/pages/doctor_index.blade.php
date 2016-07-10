@@ -31,7 +31,9 @@
 				        	@foreach($ongoing as $row)
 					        	<tr>
 					        		<th scope="row"><?php echo $a++; ?></th>
-					        		<td>{{ $row->user->name}}</td>
+					        		<td>
+					        			<a href="/patient/{{$row->user->name}} ">{{ $row->user->name}}</a>
+					        		</td>
 					        		<td>{{ $row->user->email}}</td>
 					        		<td>{{ $row->started_at }}</td>
 									@if($row->disease)

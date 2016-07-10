@@ -2,10 +2,6 @@ html {
   font-size: 62.5%;
   min-height: 100%; }
 
-a {
-  text-decoration: none;
-  color: inherit; }
-
 .right {
   float: right; }
   .right:after {
@@ -18,6 +14,9 @@ a {
 
 .height-full {
   height: 100%; }
+
+.capitalize {
+  text-transform: capitalize; }
 
 .navbar {
   margin: 0px;
@@ -82,7 +81,9 @@ a {
   padding-left: 8px;
   display: block;
   height: 100%;
-  position: relative; }
+  position: relative;
+  text-decoration: none;
+  color: inherit; }
   .sidebar-list-item-link:hover:before {
     content: "";
     position: absolute;

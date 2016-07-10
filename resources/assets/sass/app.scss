@@ -8,10 +8,6 @@ html{
 
 }
 
-a{
-	text-decoration: none;
-	color: inherit;
-}
 
 .right{
 	float: right;
@@ -33,6 +29,9 @@ a{
 	height:100%;
 }
 
+.capitalize{
+	text-transform: capitalize;
+}
 
 .navbar{
 	@include margin(0);
@@ -100,6 +99,8 @@ a{
 					display: block;
 					height: 100%;
 					position: relative;
+					text-decoration: none;
+					color: inherit;
 					&:hover{	
 						&:before{
 							content : "";

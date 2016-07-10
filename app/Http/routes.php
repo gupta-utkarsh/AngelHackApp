@@ -20,27 +20,19 @@ Route::group(['middleware' => ['web']], function(){
 Route::get('login', 'Auth\AuthController@showLoginForm');
 Route::post('login', 'Auth\AuthController@login');
 Route::get('logout', 'Auth\AuthController@logout');
-
-// Registration Routes...
 Route::post('docregister', 'DoctorAuth\AuthController@register');
 Route::post('register', 'Auth\AuthController@register');
-
 Route::get('doclogin', 'DoctorAuth\AuthController@showLoginForm');
 Route::post('doclogin', 'DoctorAuth\AuthController@login');
 Route::get('doclogout', 'DoctorAuth\AuthController@logout');
-
 Route::get('/home', 'HomeController@index');
-
 Route::get('/profile', 'ProfileController@index');
-Route::get('/', 'HomeController@index');
-
-Route::get('/patient/{name}', 'PatientController@index');
 Route::post('/patient/{name}/addlog', 'PatientController@appendLogs');
-
+Route::post('/patient/{name}/addDisease', function(){return;});
 Route::get('/patient/{name}/family', 'PatientController@appendLogs');
-
-
-
+Route::get('/patient/{name}', 'PatientController@index');
+Route::get('/current_patients', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 });
 
 
