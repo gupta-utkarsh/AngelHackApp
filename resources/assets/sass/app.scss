@@ -33,6 +33,7 @@ html{
 	text-transform: capitalize;
 }
 
+
 .navbar{
 	@include margin(0);
 	background-color: rgba(255,255,255,1);
@@ -143,6 +144,14 @@ html{
 .main-body{
 	@include margin-all(50px, null, null, 16%);
 }
+
+	.page-heading{
+		@include margin-all(30px, null, 30px, null);
+	}
+
+	.page-sub-heading{
+		@include margin-all(30px, null, 30px, null);
+	}
 
 	.panel-container{
 		@include margin-all(30px, null, null, null);

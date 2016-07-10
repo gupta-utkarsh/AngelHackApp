@@ -25,9 +25,11 @@ class PatientController extends Controller
     		$patient = User::getUserBy('name', $name);
             $status = 0;
             $all_common_logs = Medical_log::getAllUserLogsforDoctor($user, $patient->id);
+            $current_appointment = Appointment::getCurrentAppointmentForUser($patient);
             return view('pages/doctor_patient_index',[
                 'logs' => $all_common_logs,
                 'patient' => $patient,
+                'appointment' => $current_appointment,
                 'status' => $status
             ]);
             // if($patient->doctor()->email == $user->email){

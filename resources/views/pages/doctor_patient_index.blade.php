@@ -11,8 +11,16 @@
 			@include('includes.sidebar')
 		</aside>
 		<main class="main-body">	
-			<div class="panel-container col-md-offset-1 col-md-10 col-xs-12">	
+			<div class="panel-container col-md-offset-1 col-md-10 col-xs-12">
+				<a href="/current_patients"><span class="right">Back</span></a>	
 				<h3 class="capitalize page-heading">Patient : {{$patient->name}}</h3>
+				<h4 class="page-sub-heading">
+					@if($appointment->disease)
+						<td>Status : Diagnosed with {{ $appointment->disease}}</td>
+					@else
+						<td>Status : Unknown Illness</td>
+					@endif
+				</h4>
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<span class="capitalize">{{$patient->name}}'s</span> previous appointments with you.

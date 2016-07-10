@@ -125,6 +125,14 @@ html {
   margin-top: 50px;
   margin-left: 16%; }
 
+.page-heading {
+  margin-top: 30px;
+  margin-bottom: 30px; }
+
+.page-sub-heading {
+  margin-top: 30px;
+  margin-bottom: 30px; }
+
 .panel-container {
   margin-top: 30px; }
 

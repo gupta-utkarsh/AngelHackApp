@@ -25,7 +25,7 @@ class Appointment extends Model
 
     public static function getCurrentAppointmentForUser(User $user)
     {
-    	return $user->appointments()->where('ended_at', '=', null)->get();
+    	return $user->appointments()->where('ended_at', '=', null)->get()->first();
     }
 
     public static function getCurrentAppointmentsForDoctor(Doctor $user)
