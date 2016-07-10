@@ -14,13 +14,15 @@
 			<div class="panel-container col-md-offset-1 col-md-10 col-xs-12">
 				<a href="/current_patients"><span class="right">Back</span></a>	
 				<h3 class="capitalize page-heading">Patient : {{$patient->name}}</h3>
-				<h4 class="page-sub-heading">
-					@if($appointment->disease)
-						<td>Status : Diagnosed with {{ $appointment->disease}}</td>
-					@else
-						<td>Status : Unknown Illness</td>
-					@endif
-				</h4>
+				@if($status == 0)
+					<h4 class="page-sub-heading">
+						@if($appointment->disease)
+							<td>Status : Diagnosed with {{ $appointment->disease}}</td>
+						@else
+							<td>Status : Unknown Illness</td>
+						@endif
+					</h4>
+				@endif
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<span class="capitalize">{{$patient->name}}'s</span> previous appointments with you.
@@ -37,16 +39,18 @@
 				    	</thead>
 				        <tbody>
 				        	<?php $a=1; ?>
-				        	<form action="/patient/{{ $patient->name }}/addlog" method="post">
-				        		<tr>
-				        			<td></td>
-				        			<td></td>
-									<td><input type="text" name="symptoms"></td>
-									<td><input type="text" name="diagnosis"></td>
-									<td><input type="text" name="medicines"></td>
-									<td><input type="submit" name="submit" value="submit"></td>
-				        		</tr>
-				        	</form>
+				        	@if($status == 0)
+					        	<form action="/patient/{{ $patient->name }}/addlog" method="post">
+					        		<tr>
+					        			<td></td>
+					        			<td></td>
+										<td><input type="text" name="symptoms"></td>
+										<td><input type="text" name="diagnosis"></td>
+										<td><input type="text" name="medicines"></td>
+										<td><input type="submit" name="submit" value="Add"></td>
+					        		</tr>
+					        	</form>
+					        @endif	
 				        	@foreach($logs as $row)
 					        	<tr>
 					        		<th scope="row"><?php echo $a++; ?></th>
@@ -60,9 +64,14 @@
 					            </tr>
 					        @endforeach
 				        </tbody> 
-				    </table>
+				    </table> 
 				</div>
-			</div>	
+				<div class="btn-group" role="group" aria-label="...">
+				  <a href="/patient/{{ $patient->name }}/family"><button type="button" class="btn btn-default">Family Tree</button></a>
+				  <a href="/patient/{{ $patient->name }}/logs"><button type="button" class="btn btn-default">All Medical Appointments Till Date</button></a>
+				</div>	
+			</div>
+			
 		</main>
 		@include('includes.footer')
 	</body>

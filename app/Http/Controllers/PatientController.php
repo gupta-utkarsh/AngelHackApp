@@ -89,7 +89,8 @@ class PatientController extends Controller
 
     public function familyIndex($name)
     {
-    	$patient = User::getUserBy('name', $name);
+    	$user = self::getCurrentUser();
+        $patient = User::getUserBy('name', $name);
 
     	$object_array = $patient->relationsLeftToRight;
 
@@ -99,11 +100,10 @@ class PatientController extends Controller
 
     	if($user->is_doctor())
     	{
-    		
-    		
-    		// for doctors /patients/{name}/family
-    		
-    		// family view with search box
+    		return view('pages/doctor_patient_family',[
+                $patient = json_encode($patient),
+                $nodes = json_encode($object_array)
+            ]);
     	}
     	else
     	{
