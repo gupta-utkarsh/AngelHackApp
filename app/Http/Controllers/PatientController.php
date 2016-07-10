@@ -24,6 +24,13 @@ class PatientController extends Controller
 
     		// your view goes here
        	}
+       	else
+       	{
+       		// when user clicks anywhere on the family tree
+       		// just show person's profile - patients/person
+
+       		
+       	}
     }
 
     public function appendLogs(Request $request, $name)
@@ -67,7 +74,10 @@ class PatientController extends Controller
     			// family view without search box
     			// with option to add family members via email
     		}
-
+    		else
+    		{
+    			abort(400, "Are you lost");
+    		}
     		
     	}
     }
