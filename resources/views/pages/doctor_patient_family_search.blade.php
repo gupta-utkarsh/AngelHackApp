@@ -29,11 +29,11 @@
 				        <tbody>
 				        	<?php $a=1; ?>
 				        	@foreach($diseases as $disease_chunk)
-						        @foreach($disease_chunk as $appointment)	
+						        @foreach($disease_chunk['models'] as $appointment)	
 						        	<tr>
 						        		<th scope="row"><?php echo $a++; ?></th>
 						        		<td>
-						        			
+						        			{{ $disease_chunk['relation'] }}
 						        		</td>
 						        		<td class="capitalize">{{ $appointment->disease}}</td>
 						            </tr>
@@ -59,11 +59,11 @@
 				        <tbody>
 				        	<?php $a=1; ?>
 				        	@foreach($symptoms as $symptom_chunk)
-						        @foreach($symptom_chunk as $medical_log)	
+						        @foreach($symptom_chunk['models'] as $medical_log)	
 						        	<tr>
 						        		<th scope="row"><?php echo $a++; ?></th>
-						        		<td>
-						        			
+						        		<td class="capitalize">
+						        			{{ $symptom_chunk['relation'] }}
 						        		</td>
 						        		<td class="capitalize">{{ $medical_log->symptoms}}</td>
 						        		<td class="capitalize">{{ $medical_log->diagnosis }}</td>
@@ -73,11 +73,11 @@
 						        @endforeach    
 					        @endforeach
 					        @foreach($medicines as $symptom_chunk)
-						        @foreach($symptom_chunk as $medical_log)	
+						        @foreach($symptom_chunk['models'] as $medical_log)	
 						        	<tr>
 						        		<th scope="row"><?php echo $a++; ?></th>
-						        		<td>
-						        			
+						        		<td class="capitalize">
+						        			{{ $symptom_chunk['relation'] }}	
 						        		</td>
 						        		<td class="capitalize">{{ $medical_log->symptoms}}</td>
 						        		<td class="capitalize">{{ $medical_log->diagnosis }}</td>
