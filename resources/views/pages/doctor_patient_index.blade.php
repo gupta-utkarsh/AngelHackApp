@@ -12,7 +12,7 @@
 		</aside>
 		<main class="main-body">	
 			<div class="panel-container col-md-offset-1 col-md-10 col-xs-12">
-				<a href="/current_patients"><span class="right">Back</span></a>	
+				<a href="/current_patients"><span class="right">Back</span></a>
 				<h3 class="capitalize page-heading">Patient : {{$patient->name}}</h3>
 				@if($status == 0)
 					<h4 class="page-sub-heading">

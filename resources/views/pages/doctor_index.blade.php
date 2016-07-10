@@ -12,6 +12,17 @@
 		</aside>
 		<main class="main-body">	
 			<div class="panel-container col-md-offset-1 col-md-10 col-xs-12">	
+				<form class="right" method="post" role="form" action="/current_patients">
+					{{ csrf_field() }}
+					<div class="form-group inline">
+						<input type="text" name="name"/>
+					</div>
+					<div class="form-group inline">	
+						<button type="submit" class="btn btn-primary">
+							Add Appointment
+						</button>	
+					</div>				
+				</form>	
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						Current Patients
