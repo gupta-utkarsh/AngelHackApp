@@ -68,7 +68,9 @@ class PatientController extends Controller
 
         $patient = User::getUserBy('name', $name);
 
-        if($patient->doctor_id == 0)
+        //dd($patient->doctor_id);
+
+        if(is_null($patient->doctor_id) || $patient->doctor_id == '0' || $patient->doctor_id == 0)
         {
             $user->createAppointmentForUser($patient);
 
@@ -76,7 +78,7 @@ class PatientController extends Controller
         }
         else
         {
-            return redirect('/patients/'.$patient->name);
+            return redirect('/patient/'.$patient->name);
         }
 
 

@@ -19,6 +19,7 @@ class SearchController extends Controller
    		$user = self::getCurrentUser();
 
          $result =  array();
+
          $result['diseases'] = array();
          $result['symptoms'] = array();
          $result['medicines']= array();
@@ -33,54 +34,59 @@ class SearchController extends Controller
    		{
    			// appointment logs objects
 
-   			array_push($result['diseases'], $this->searchDiseases($object->pivot->second_user, $param));
+   			array_push($result['diseases'], $this->searchDiseases($object->pivot->second_user, $param, $object->pivot->relation));
 
    			// medical logs objects
-            array_push($result['symptoms'], $this->searchSymptoms($object->pivot->second_user, $param));
+            array_push($result['symptoms'], $this->searchSymptoms($object->pivot->second_user, $param, $object->pivot->relation));
 
-   			array_push($result['medicines'], $this->searchMeds($object->pivot->second_user, $param));
+   			array_push($result['medicines'], $this->searchMeds($object->pivot->second_user, $param, $object->pivot->relation));
    		}
 
          return view('pages/doctor_patient_family_search',[
                'diseases' => $result['diseases'],
                'symptoms' => $result['symptoms'],
                'medicines' => $result['medicines'],
-               'patient' => $patient         
+               'patient' => $patient 
+
             ]);   
    	}
 
-   	protected function searchDiseases($user_id, $param)
+   	protected function searchDiseases($user_id, $param, $relation)
    	{	
+   		$obj = array();
+
    		$user = User::getUserBy('id', $user_id);
 
    		//$meds = explode(', ', $user->medical_logs->medicines);
 
-   		return $user->appointments()->whereNotNull('disease')->where('disease', 'LIKE', '%'.$param.'%')->get();
-
-   		//return $result;
+   		$obj['models'] = $user->appointments()->whereNotNull('disease')->where('disease', 'LIKE', '%'.$param.'%')->get();
+   		$obj['relation'] = $relation;
+   		return $obj;
    	}
 
-   	protected function searchSymptoms($user_id, $param)
+   	protected function searchSymptoms($user_id, $param, $relation)
    	{	
 
+   		$obj = array();
    		$user = User::getUserBy('id', $user_id);
 
    		//$meds = explode(', ', $user->medical_logs->medicines);
 
-   		return $user->medical_logs()->whereNotNull('symptoms')->where('symptoms', 'LIKE', '%'.$param.'%')->get();
-
-   		//return $result;
+   		$obj['models'] = $user->medical_logs()->whereNotNull('symptoms')->where('symptoms', 'LIKE', '%'.$param.'%')->get();
+   		$obj['relation'] = $relation;
+   		return $obj;
    	}
 
-   	protected function searchMeds($user_id, $param)
+   	protected function searchMeds($user_id, $param, $relation)
    	{	
 
+   		$obj = array();
    		$user = User::getUserBy('id', $user_id);
 
    		//$meds = explode(', ', $user->medical_logs->medicines);
 
-   		return $user->medical_logs()->whereNotNull('medicines')->where('medicines', 'LIKE', '%'.$param.'%')->get();
-
-   		//return $result;
+   		$obj['models'] = $user->medical_logs()->whereNotNull('medicines')->where('medicines', 'LIKE', '%'.$param.'%')->get();
+   		$obj['relation'] = $relation;
+   		return $obj;
    	}
 }

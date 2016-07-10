@@ -35,7 +35,7 @@ Route::get('/patient/{name}/family', 'PatientController@familyIndex');
 Route::get('/patient/{name}', 'PatientController@index');
 Route::get('/patient_history', 'PatientController@getHistory');
 Route::get('/current_patients', 'HomeController@index');
-Route::post('/current_patients', 'PatientController@index');
+Route::post('/current_patients', 'PatientController@newAppointment');
 Route::get('/', 'HomeController@index');
 
 
