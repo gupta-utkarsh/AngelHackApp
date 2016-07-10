@@ -2,10 +2,6 @@ html {
   font-size: 62.5%;
   min-height: 100%; }
 
-a {
-  text-decoration: none;
-  color: inherit; }
-
 .right {
   float: right; }
   .right:after {
@@ -18,6 +14,9 @@ a {
 
 .height-full {
   height: 100%; }
+
+.capitalize {
+  text-transform: capitalize; }
 
 .navbar {
   margin: 0px;
@@ -51,6 +50,7 @@ a {
   background-color: #e7e7e7;
   position: fixed;
   left: 0;
+  top: 0;
   width: 16%;
   box-shadow: 1px 0px 3px 0 rgba(214, 214, 214, 0.4) !important; }
 
@@ -81,7 +81,9 @@ a {
   padding-left: 8px;
   display: block;
   height: 100%;
-  position: relative; }
+  position: relative;
+  text-decoration: none;
+  color: inherit; }
   .sidebar-list-item-link:hover:before {
     content: "";
     position: absolute;
@@ -118,6 +120,21 @@ a {
     height: 30%;
     width: 1px;
     border-left: 2px solid #23527c; }
+
+.main-body {
+  margin-top: 50px;
+  margin-left: 16%; }
+
+.page-heading {
+  margin-top: 30px;
+  margin-bottom: 30px; }
+
+.page-sub-heading {
+  margin-top: 30px;
+  margin-bottom: 30px; }
+
+.panel-container {
+  margin-top: 30px; }
 
 .bubbletree-wrapper {
   position: absolute !important;

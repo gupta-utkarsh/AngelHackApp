@@ -8,10 +8,6 @@ html{
 
 }
 
-a{
-	text-decoration: none;
-	color: inherit;
-}
 
 .right{
 	float: right;
@@ -31,6 +27,10 @@ a{
 
 .height-full{
 	height:100%;
+}
+
+.capitalize{
+	text-transform: capitalize;
 }
 
 
@@ -71,6 +71,7 @@ a{
 	background-color: #e7e7e7;
 	position:fixed;
 	left:0;
+	top:0;
 	width: 16%;
 	box-shadow : 1px 0px 3px 0 hsla(0,0%,84%,.4) !important;
 }
@@ -99,6 +100,8 @@ a{
 					display: block;
 					height: 100%;
 					position: relative;
+					text-decoration: none;
+					color: inherit;
 					&:hover{	
 						&:before{
 							content : "";
@@ -137,6 +140,22 @@ a{
 						border-left:2px solid #23527c;
 					}
 				}	
+
+.main-body{
+	@include margin-all(50px, null, null, 16%);
+}
+
+	.page-heading{
+		@include margin-all(30px, null, 30px, null);
+	}
+
+	.page-sub-heading{
+		@include margin-all(30px, null, 30px, null);
+	}
+
+	.panel-container{
+		@include margin-all(30px, null, null, null);
+	}
 
 	
 
