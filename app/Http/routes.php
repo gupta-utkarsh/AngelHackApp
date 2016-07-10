@@ -35,6 +35,8 @@ Route::get('/patient/{name}', 'PatientController@index');
 Route::get('/current_patients', 'HomeController@index');
 Route::get('/', 'HomeController@index');
 
+Route::post('/patient/{name}/search', 'SearchController@index');
+
 });
 
 
