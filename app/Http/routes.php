@@ -34,6 +34,13 @@ Route::get('/home', 'HomeController@index');
 Route::get('/profile', 'ProfileController@index');
 Route::get('/', 'HomeController@index');
 
+Route::get('/patient/{name}', 'PatientController@index');
+Route::post('/patient/{name}/addlog', 'PatientController@appendLogs');
+
+Route::get('/patient/{name}/family', 'PatientController@appendLogs');
+
+
+
 });
 
 
