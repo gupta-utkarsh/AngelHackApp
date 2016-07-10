@@ -27,12 +27,20 @@
 				    		</tr>
 				    	</thead>
 				        <tbody>
-				        	<tr>
-				        		<th scope="row">1</th>
-				        		<td>Mark</td>
-				        		<td>Otto</td>
-				        		<td>@mdo</td>
-				            </tr>
+				        	<?php $a=1; ?>
+				        	@foreach($ongoing as $row)
+					        	<tr>
+					        		<th scope="row"><?php echo $a++; ?></th>
+					        		<td>{{ $row->user->name}}</td>
+					        		<td>{{ $row->user->email}}</td>
+					        		<td>{{ $row->started_at }}</td>
+									@if($row->disease)
+					        		<td>Diagnosed with {{ $row->disease}}</td>
+					        		@else
+					        		<td>Unknown</td>
+					        		@endif
+					            </tr>
+					        @endforeach    
 				        </tbody> 
 				    </table>
 				</div>
