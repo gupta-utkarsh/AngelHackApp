@@ -60,13 +60,38 @@ class PatientController extends Controller
        	}
     }
 
+    public function newAppointment(Request $request)
+    {
+        $user = self::getCurrentUser();
+
+        $name = $request->input('name');
+
+        $patient = User::getUserBy('name', $name);
+
+        if($patient->doctor_id == 0)
+        {
+            $user->createAppointmentForUser($patient);
+
+            return redirect('/current_patients');
+        }
+        else
+        {
+            return redirect('/patients/'.$patient->name);
+        }
+
+
+    }
+
     public function appendLogs(Request $request, $name)
     {
     	$patient = User::getUserBy('name', $name);
         $user = self::getCurrentUser();
     	if($user->is_doctor())
     	{
-    		$user->createMedicalLogForUser($patient, $request->all());
+    		
+            $user->createMedicalLogForUser($patient, $request->all());
+
+            return back();
     	}
     	else
     	{
@@ -135,7 +160,7 @@ class PatientController extends Controller
 
         if($user->is_doctor())
         {
-            $all_patients = Doctor::getAllAppointments($user);
+            $all_patients = $user->getAllAppointments();
         }
     }
 }

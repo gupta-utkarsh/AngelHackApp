@@ -59,16 +59,27 @@ class Doctor extends Authenticatable
     }
     public function createMedicalLogForUser(User $user, $params)
     {
-        $this->medical_log = new Medical_log;
-        $this->medical_log->symptoms =  $params['symptoms'];
-        $this->medical_log->diagnosis = $params['diagnosis'];
-        $this->medical_log->user()->associate($user);
-        $this->medical_log->save();
+
+        /*$this->medical_logs = new Medical_log;
+        $this->medical_logs->symptoms =  $params['symptoms'];
+        $this->medical_logs->diagnosis = $params['diagnosis'];
+        $this->medical_logs->medicines = $params['medicines'];
+        $this->medical_logs->user()->associate($user);
+        $this->medical_logs->save();*/
+
+        $this->medical_logs()->create(
+            [
+                'symptoms' => $params['symptoms'],
+                'diagnosis' => $params['diagnosis'],
+                'medicines' => $params['medicines'],
+                'user_id' => $user->id
+
+            ]);
     }
 
-    public static function getAllAppointments(Doctor $user)
+    public function getAllAppointments()
     {
-        return $user->appointments()->orderBy('created_at', 'desc')->get();
+        return $this->appointments()->orderBy('created_at', 'desc')->get();
     }
 
 }
