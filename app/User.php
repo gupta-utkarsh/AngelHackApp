@@ -53,12 +53,12 @@ class User extends Authenticatable
 
     public function relationsLeftToRight()
     {
-        return $this->belongsToMany('App\User', 'patient_relations', 'first_user', 'second_user')->withPivot('relations')->withTimestamps();
+        return $this->belongsToMany('App\User', 'patient_relations', 'first_user', 'second_user')->withPivot('relation')->withTimestamps();
     }
 
     public function relationsRightToLeft()
     {
-        return $this->belongsToMany('App\User', 'patient_relations', 'second_user', 'first_user')->withPivot('relations')->withTimestamps();;
+        return $this->belongsToMany('App\User', 'patient_relations', 'second_user', 'first_user')->withPivot('relation')->withTimestamps();;
     }
 
     public function family_invites_received()
