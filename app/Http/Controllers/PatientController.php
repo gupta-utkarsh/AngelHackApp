@@ -128,4 +128,14 @@ class PatientController extends Controller
     		
     	}
     }
+
+    public function getHistory()
+    {
+        $user = self::getCurrentUser();
+
+        if($user->is_doctor())
+        {
+            $all_patients = Doctor::getAllAppointments($user);
+        }
+    }
 }
