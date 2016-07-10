@@ -167,6 +167,20 @@ html{
 	height: -webkit-calc(100% - 50px) !important;
 }
 
+	.bubbletree-amount{
+		display:none !important; 
+	}
+
+	.bubbletree-desc{
+		font-size: 15px !important;
+	}
+
+	.bubbletree-desc span{
+		@include padding-all(5px, null, 5px, null);
+		font-size: 12px;
+		font-weight: bold;
+	}
+
 .footer{
 	@include padding-all(5px, null, 5px, null);
 	position : fixed;

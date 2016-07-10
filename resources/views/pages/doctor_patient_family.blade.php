@@ -13,21 +13,28 @@
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/bubbletree.css') }}" />
 		<script type="text/javascript">
 			$(function() {
+				String.prototype.capitalizeFirstLetter = function() {
+				    return this.charAt(0).toUpperCase() + this.slice(1);
+				}
 				var data = {
-					label: 'Total',
-					amount: 100,
+					label: '{{$patient->name}}'.capitalizeFirstLetter(),
+					amount: 50,
 					color: '#0066bb',  // color for root node, will be inherited by children
 					children: [
-						{ label: 'First child', amount: 30 },
-						{ label: 'Second child', amount: 40 },
-						{ label: 'Third child', amount: 30, color: '#ff3300' }
+						@foreach($nodes as $object)
+						{ label: '{{$object->name}}'.capitalizeFirstLetter() + '<br/><span>' + '{{$object->pivot->relation}}'.capitalizeFirstLetter() + '</span>', amount: 20, color: '#F43434' },
+						@endforeach
 					]
 				};
+
+				console.log();
 
 				new BubbleTree({
 					data: data,
 					container: '.bubbletree'
 				});
+
+
 			});
 		</script>
 	</head>

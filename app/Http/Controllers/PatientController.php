@@ -108,8 +108,8 @@ class PatientController extends Controller
     	if($user->is_doctor())
     	{
     		return view('pages/doctor_patient_family',[
-                $patient = json_encode($patient),
-                $nodes = json_encode($object_array)
+                'patient' => $patient,
+                'nodes' => $object_array
             ]);
     	}
     	else

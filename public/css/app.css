@@ -143,6 +143,18 @@ html {
   width: 84% !important;
   height: -webkit-calc(100% - 50px) !important; }
 
+.bubbletree-amount {
+  display: none !important; }
+
+.bubbletree-desc {
+  font-size: 15px !important; }
+
+.bubbletree-desc span {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 12px;
+  font-weight: bold; }
+
 .footer {
   padding-top: 5px;
   padding-bottom: 5px;
