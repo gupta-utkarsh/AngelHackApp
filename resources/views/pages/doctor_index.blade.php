@@ -31,7 +31,7 @@
 				        	@foreach($ongoing as $row)
 					        	<tr>
 					        		<th scope="row"><?php echo $a++; ?></th>
-					        		<td>
+					        		<td class="capitalize">
 					        			<a href="/patient/{{$row->user->name}} ">{{ $row->user->name}}</a>
 					        		</td>
 					        		<td>{{ $row->user->email}}</td>
